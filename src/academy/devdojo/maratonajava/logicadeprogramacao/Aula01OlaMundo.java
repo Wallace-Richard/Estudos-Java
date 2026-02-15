@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao;
 
-public class OlaMundo
+public class Aula01OlaMundo
 {
     public static void main (String[] args)
     {
