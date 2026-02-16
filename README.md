@@ -10,13 +10,13 @@ README focado em documentar tudo que eu aprendi no curso de java do DevDojo
 
 ## Aula 04 (15 - 19): Operador resto, Operadores de comparação, Operadores Lógicos e Operadores de Atribuição
 
-Operadores de comparação: 
+### Operadores de comparação: 
 <img width="707" height="186" alt="image" src="https://github.com/user-attachments/assets/54368b5e-0036-4df3-a679-e89f52ae3be5" />
 
-Operadores Lógicos:
+### Operadores Lógicos:
 <img width="708" height="135" alt="image" src="https://github.com/user-attachments/assets/f138e89e-85d7-4f51-93a3-4ae6c178f61d" />
 
-Operadores de Atribuição:
+### Operadores de Atribuição:
 <img width="514" height="167" alt="image" src="https://github.com/user-attachments/assets/ac344c53-953f-4471-847c-925c32270bb5" />
 
 ## Aula 05 (20 - 26): Estruras condicionais if, else if, else, switch e operador ternario
@@ -30,7 +30,7 @@ else if → testa uma nova condição
 else → executa se a condição for falsa
 switch → usado quando temos várias opções possíveis
 
-if, else if, else:
+### if, else if, else:
         
         int idade = 18;
         String categoria;
@@ -49,7 +49,7 @@ if, else if, else:
         }
         System.out.println(categoria);
 
-Operador Ternário
+### Operador Ternário
 
 O operador ternário é uma forma simplificada de escrever uma condição if-else em uma única linha.
         
