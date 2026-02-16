@@ -1,6 +1,7 @@
 # Maratona Java - DevDojo
 
-README focado em documentar tudo que eu aprendi no curso de java do DevDojo
+Este repositório foi criado para documentar minha evolução no curso de Java do DevDojo.
+Aqui registro exercícios, conceitos e exemplos práticos aplicados durante os estudos.
 
 ## Aula 01: Como JAVA funciona
 <img width="829" height="427" alt="image" src="https://github.com/user-attachments/assets/89403c4b-c3eb-4b9c-8de6-83ef4738fe91" />
