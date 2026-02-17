@@ -90,6 +90,7 @@ byte dia = 8;
 ## Aula 06 (27 - 31): Estruturas de Repetição while, do while, for e comandos break and continue
 
 While
+
 Executa enquanto a condição for verdadeira. A verificação acontece antes da execução.
 
         int i = 0
@@ -99,6 +100,7 @@ Executa enquanto a condição for verdadeira. A verificação acontece antes da 
         }
 
 Do while
+
 Parecido com o while, mas executa pelo menos uma vez, pois a verificação acontece depois.
 
         int count = 0
@@ -108,6 +110,7 @@ Parecido com o while, mas executa pelo menos uma vez, pois a verificação acont
         } while (count < 10);
 
 For
+
 Usado quando sabemos a quantidade de repetições. É mais organizado para loops com contador.
 
         int i = 0
@@ -120,6 +123,7 @@ Usado quando sabemos a quantidade de repetições. É mais organizado para loops
         }
 
 break
+
 Para tudo, sai do laço de repetição imediatamente.
 
         System.out.println("\n--- Testando BREAK (Parar no 3) ---");
@@ -131,6 +135,7 @@ Para tudo, sai do laço de repetição imediatamente.
             }
 
 continue
+
 Pula este. Ignora o código restante apenas nesta volta e vai para o próximo item.
 
         System.out.println("--- Testando CONTINUE (Pular o 3) ---");
