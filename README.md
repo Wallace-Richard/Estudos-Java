@@ -11,15 +11,15 @@ Aqui registro exercícios, conceitos e exemplos práticos aplicados durante os e
 
 ## Aula 04 (15 - 19): Operador resto, Operadores de comparação, Operadores Lógicos e Operadores de Atribuição
 
-### Operadores de comparação: 
+Operadores de comparação: 
 
 <img width="707" height="186" alt="image" src="https://github.com/user-attachments/assets/54368b5e-0036-4df3-a679-e89f52ae3be5" />
 
-### Operadores Lógicos:
+Operadores Lógicos:
 
 <img width="708" height="135" alt="image" src="https://github.com/user-attachments/assets/f138e89e-85d7-4f51-93a3-4ae6c178f61d" />
 
-### Operadores de Atribuição:
+Operadores de Atribuição:
 
 <img width="514" height="167" alt="image" src="https://github.com/user-attachments/assets/ac344c53-953f-4471-847c-925c32270bb5" />
 
@@ -34,7 +34,7 @@ else if → testa uma nova condição
 else → executa se a condição for falsa
 switch → usado quando temos várias opções possíveis
 
-### if, else if, else:
+if, else if, else:
         
         int idade = 18;
         String categoria;
@@ -53,7 +53,7 @@ switch → usado quando temos várias opções possíveis
         }
         System.out.println(categoria);
 
-### Operador Ternário
+Operador Ternário
 
 O operador ternário é uma forma simplificada de escrever uma condição if-else em uma única linha.
         
@@ -65,7 +65,7 @@ O operador ternário é uma forma simplificada de escrever uma condição if-els
         status = idade < 18 ? "Não Adulto" : "Adulto";
         System.out.println(status);
 
-### Switch
+Switch
 
 O Switch é uma estrutura condicional usada quando temos várias opções baseadas no mesmo valor. 
 Cada opção é definida com "case", e o "break" é usado para impedir que os próximos casos sejam executados.  
@@ -86,4 +86,58 @@ byte dia = 8;
                 break;
             default:
                 System.out.println("Opção inválida");
+
+## Aula 06 (27 - 31): Estruturas de Repetição while, do while, for e comandos break and continue
+
+While
+Executa enquanto a condição for verdadeira. A verificação acontece antes da execução.
+
+        int i = 0
+        while (i < 10)
+        {
+            System.out.println(++i);
+        }
+
+Do while
+Parecido com o while, mas executa pelo menos uma vez, pois a verificação acontece depois.
+
+        int count = 0
+        do
+        {
+            System.out.println("dentro do do while: "+ count++);
+        } while (count < 10);
+
+For
+Usado quando sabemos a quantidade de repetições. É mais organizado para loops com contador.
+
+        int i = 0
+        for (i = 0; i <= 1000; i++)
+        {
+            if (i % 2 == 0)
+            {
+                System.out.println(i);
+            }
+        }
+
+break
+Para tudo, sai do laço de repetição imediatamente.
+
+        System.out.println("\n--- Testando BREAK (Parar no 3) ---");
+        for (int i = 1; i <= 5; i++) {
+            if (i == 3) {
+                break;
+            }
+            System.out.println("Número: " + i);
+            }
+
+continue
+Pula este. Ignora o código restante apenas nesta volta e vai para o próximo item.
+
+        System.out.println("--- Testando CONTINUE (Pular o 3) ---");
+        for (int i = 1; i <= 5; i++) {
+            if (i == 3) {
+                continue; // Pula o resto do código e vai para o i = 4
+            }
+            System.out.println("Número: " + i);
+        }
 
