@@ -65,4 +65,25 @@ O operador ternário é uma forma simplificada de escrever uma condição if-els
         status = idade < 18 ? "Não Adulto" : "Adulto";
         System.out.println(status);
 
+### Switch
+
+O Switch é uma estrutura condicional usada quando temos várias opções baseadas no mesmo valor. 
+Cada opção é definida com "case", e o "break" é usado para impedir que os próximos casos sejam executados.  
+O "default" funciona como um "else"        
+byte dia = 8;
+       
+        switch (dia) {
+            case 1:
+            case 7:
+                System.out.println("FINAL DE SEMANA!");
+                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                System.out.println("DIA ÚTIL");
+                break;
+            default:
+                System.out.println("Opção inválida");
 
