@@ -3,6 +3,9 @@
 Este repositório foi criado para documentar minha evolução no curso de Java do DevDojo.
 Aqui registro exercícios, conceitos e exemplos práticos aplicados durante os estudos.
 
+## Logica de programação  
+
+
 ## Aula 01: Como JAVA funciona
 <img width="829" height="427" alt="image" src="https://github.com/user-attachments/assets/89403c4b-c3eb-4b9c-8de6-83ef4738fe91" />
 
@@ -146,3 +149,22 @@ Pula este. Ignora o código restante apenas nesta volta e vai para o próximo it
             System.out.println("Número: " + i);
         }
 
+## Aula 07 (32 - 38): Array e Array multidimensional
+
+Array
+
+Arrays são estruturas de dados que nos permitem armazenar múltiplos valores de um mesmo tipo em uma única variável. Em vez de criar variáveis isoladas como nota1, nota2 e nota3, utilizamos um Array para organizar esses dados em "compartimentos".
+
+Obs! 
+Ele é fixo: Um array de int só armazena números inteiros.
+Tem Tamanho Imutável: Uma vez definido o tamanho do array (ex: 5 posições), ele não pode ser alterado dinamicamente.
+E tem Índice Zero: Em Java, a contagem sempre começa no 0. Portanto, um array de tamanho 3 possui os índices
+
+        // Declaração e inicialização
+        int[] numeros = new int[5]; 
+
+        // Atribuição de valor
+        numeros[0] = 10; 
+
+        // Acessando o tamanho do array
+        int tamanho = numeros.length;
