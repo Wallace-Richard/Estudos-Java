@@ -4,6 +4,13 @@ public class Exercicio05
 {
     public static void main(String[] args)
     {
+        /*
+        FizzBuzz clássico
+        Percorra de 1 a 50. Se o número for divisível por 3, exiba "Fizz".
+        Se for divisível por 5, exiba "Buzz".
+        Se for divisível por ambos, exiba "FizzBuzz". Caso contrário, exiba o número.
+        */
+
         for (int i = 1; i <= 50; i++)
         {
             if (i % 3 == 0 && i % 5 == 0)
