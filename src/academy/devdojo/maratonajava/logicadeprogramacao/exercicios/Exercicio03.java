@@ -1,9 +1,7 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio03
-{
-    public static void main(String[] args)
-    {
+public class Exercicio03 {
+    public static void main(String[] args) {
         /*
         Cronômetro Regressivo
         Objetivo: Praticar a condição de parada do while.

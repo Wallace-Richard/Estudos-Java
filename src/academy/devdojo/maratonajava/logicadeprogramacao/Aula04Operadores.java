@@ -1,16 +1,14 @@
 package academy.devdojo.maratonajava.logicadeprogramacao;
 
-public class Aula04Operadores
-{
-    public static void main(String[] args)
-    {
+public class Aula04Operadores {
+    public static void main(String[] args) {
         //Diferentes funções do + em java
         int numero1 = 10;
         int numero2 = 20;
-        System.out.println(numero1+numero2);
-        System.out.println("A Soma é " + numero1+numero2);
-        System.out.println(numero1+numero2 + "   SOMANDO...   " + numero1 + numero2);
-        System.out.println(numero1+numero2 + "   SOMANDO...   " + (numero1 + numero2));
+        System.out.println(numero1 + numero2);
+        System.out.println("A Soma é " + numero1 + numero2);
+        System.out.println(numero1 + numero2 + "   SOMANDO...   " + numero1 + numero2);
+        System.out.println(numero1 + numero2 + "   SOMANDO...   " + (numero1 + numero2));
 
         //Operador que deixa o resto da divisão ( % )
         double numeroDouble = 10.0;

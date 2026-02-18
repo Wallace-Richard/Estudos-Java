@@ -2,10 +2,8 @@ package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
 import javax.imageio.plugins.tiff.TIFFImageReadParam;
 
-public class Exercicio02
-{
-    public static void main(String[] args)
-    {
+public class Exercicio02 {
+    public static void main(String[] args) {
         /*
         Localizador de Alvo
         Objetivo: Interromper o processamento assim que encontrar o que precisa.

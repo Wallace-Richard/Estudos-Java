@@ -1,17 +1,15 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio15
-{
-    public static void main(String[] args)
-    {
+public class Exercicio15 {
+    public static void main(String[] args) {
         /*
         Sequência de Collatz
         Pegue o número 27. Se for par divida por 2, se for ímpar multiplique por 3 e some 1.
         Repita enquanto o número for diferente de 1. Exiba cada passo e a contagem total.
         */
+
         long collatz = 27;
         int i = 1;
-
         System.out.println("Valor inicial: " + collatz);
 
         while (collatz != 1)

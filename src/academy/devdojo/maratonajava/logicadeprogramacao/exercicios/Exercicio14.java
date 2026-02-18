@@ -1,9 +1,7 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio14
-{
-    public static void main(String[] args)
-    {
+public class Exercicio14 {
+    public static void main(String[] args) {
         /*
         Achar a primeira potência de 3 maior que 500
         Comece com 3 e fique multiplicando por 3 enquanto o resultado for menor ou igual a 500.

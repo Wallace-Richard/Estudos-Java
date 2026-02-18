@@ -1,9 +1,7 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio07
-{
-    public static void main(String[] args)
-    {
+public class Exercicio07 {
+    public static void main(String[] args) {
         //Números primos
         //Exiba todos os números primos entre 2 e 50.
 
@@ -13,11 +11,11 @@ public class Exercicio07
             boolean isPrimo = true;
             for (int j = 2; j < i; j++)
             {
-               if (i % j == 0)
-               {
-                   isPrimo = false;
-                   break;
-               }
+                if (i % j == 0)
+                {
+                    isPrimo = false;
+                    break;
+                }
             }
             if (isPrimo)
             {
