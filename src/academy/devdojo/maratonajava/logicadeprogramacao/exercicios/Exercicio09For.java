@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio09 {
+public class Exercicio09For {
     public static void main(String[] args) {
         //Pirâmide de asteriscos
         //Exiba uma pirâmide com 5 andares

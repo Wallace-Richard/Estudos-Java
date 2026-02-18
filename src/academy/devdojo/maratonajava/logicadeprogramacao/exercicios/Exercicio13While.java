@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio13 {
+public class Exercicio13While {
     public static void main(String[] args) {
         int numeroOriginal = 12345, digito, numeroiInvertido = 0;
 

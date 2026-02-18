@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio07 {
+public class Exercicio07For {
     public static void main(String[] args) {
         //Números primos
         //Exiba todos os números primos entre 2 e 50.

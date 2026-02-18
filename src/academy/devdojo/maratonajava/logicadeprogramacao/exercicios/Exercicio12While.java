@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio12 {
+public class Exercicio12While {
     public static void main(String[] args) {
         /*
         Soma até passar de 100

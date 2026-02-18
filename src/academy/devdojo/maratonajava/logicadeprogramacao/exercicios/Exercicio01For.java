@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio01 {
+public class Exercicio01For {
     public static void main(String[] args) {
         /*
         O Contador Seletivo

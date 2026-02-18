@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio04 {
+public class Exercicio04For {
     public static void main(String[] args) {
         /*
         Potências de 2
