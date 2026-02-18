@@ -1,9 +1,7 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio05
-{
-    public static void main(String[] args)
-    {
+public class Exercicio05 {
+    public static void main(String[] args) {
         /*
         FizzBuzz clássico
         Percorra de 1 a 50. Se o número for divisível por 3, exiba "Fizz".
@@ -16,16 +14,13 @@ public class Exercicio05
             if (i % 3 == 0 && i % 5 == 0)
             {
                 System.out.println(i + " FizzBuzz");
-            }
-            else if (i % 3 == 0)
+            } else if (i % 3 == 0)
             {
                 System.out.println(i + " Fizz");
-            }
-            else if (i % 5 == 0)
+            } else if (i % 5 == 0)
             {
                 System.out.println(i + " Buzz");
-            }
-            else
+            } else
             {
                 System.out.println(i);
             }

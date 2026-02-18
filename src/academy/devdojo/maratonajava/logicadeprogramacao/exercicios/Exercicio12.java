@@ -1,9 +1,7 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio12
-{
-    public static void main(String[] args)
-    {
+public class Exercicio12 {
+    public static void main(String[] args) {
         /*
         Soma até passar de 100
         Comece somando 1 + 2 + 3 + 4... e pare assim que a soma ultrapassar 100.

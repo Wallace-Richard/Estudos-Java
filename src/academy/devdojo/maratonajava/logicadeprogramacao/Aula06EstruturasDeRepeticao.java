@@ -1,9 +1,7 @@
 package academy.devdojo.maratonajava.logicadeprogramacao;
 
-public class Aula06EstruturasDeRepeticao
-{
-    public static void  main(String[] args)
-    {
+public class Aula06EstruturasDeRepeticao {
+    public static void main(String[] args) {
         //while
         int i = 0, count = 20;
 
@@ -25,7 +23,7 @@ public class Aula06EstruturasDeRepeticao
         //do while
         do
         {
-            System.out.println("dentro do do while: "+ count++);
+            System.out.println("dentro do do while: " + count++);
         } while (count < 10);
 
 
@@ -39,18 +37,20 @@ public class Aula06EstruturasDeRepeticao
             {
                 break;
             }
-            System.out.println("Parcela " + parcela + " R$ " +valorParcela);
+            System.out.println("Parcela " + parcela + " R$ " + valorParcela);
         }
 
         //continue
         valorTotal = 30000;
-        for(int parcela = (int)valorTotal ; parcela >= 1 ; parcela--){
+        for (int parcela = (int) valorTotal; parcela >= 1; parcela--)
+        {
             double valorParcela = valorTotal / parcela;
 
-            if(valorParcela <= 1000){
+            if (valorParcela <= 1000)
+            {
                 continue;
             }
-            System.out.println("Parcela "+ parcela + " R$ " + valorParcela);
+            System.out.println("Parcela " + parcela + " R$ " + valorParcela);
             System.out.println("CODIGO CONSUMINDO MEMORIA!");
         }
     }

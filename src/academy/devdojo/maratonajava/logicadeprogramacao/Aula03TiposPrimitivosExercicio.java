@@ -1,9 +1,7 @@
 package academy.devdojo.maratonajava.logicadeprogramacao;
 
-public class Aula03TiposPrimitivosExercicio
-{
-    public static void main(String[] args)
-    {
+public class Aula03TiposPrimitivosExercicio {
+    public static void main(String[] args) {
         String name, address, paymentDate, report;
         double salary;
         name = "Wallace Richard";
