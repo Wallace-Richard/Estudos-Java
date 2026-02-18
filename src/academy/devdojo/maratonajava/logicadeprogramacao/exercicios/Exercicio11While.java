@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio11 {
+public class Exercicio11While {
     public static void main(String[] args) {
         /*
         Dividindo até chegar em 1

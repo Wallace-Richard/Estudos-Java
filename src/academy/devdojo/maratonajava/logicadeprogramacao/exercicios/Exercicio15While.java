@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio15 {
+public class Exercicio15While {
     public static void main(String[] args) {
         /*
         Sequência de Collatz

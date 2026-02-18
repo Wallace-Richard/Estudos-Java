@@ -1,8 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-
-public class Exercicio08 {
+public class Exercicio08For {
     public static void main(String[] args) {
         //Sequência de Fibonacci
         //Gere os primeiros 15 números da sequência de Fibonacci (0, 1, 1, 2, 3, 5...).

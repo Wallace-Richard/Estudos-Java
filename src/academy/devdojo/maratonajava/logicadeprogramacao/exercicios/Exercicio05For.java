@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio05 {
+public class Exercicio05For {
     public static void main(String[] args) {
         /*
         FizzBuzz clássico

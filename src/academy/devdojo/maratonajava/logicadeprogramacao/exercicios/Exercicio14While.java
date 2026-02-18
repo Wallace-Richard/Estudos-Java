@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
 
-public class Exercicio14 {
+public class Exercicio14While {
     public static void main(String[] args) {
         /*
         Achar a primeira potência de 3 maior que 500
