@@ -171,3 +171,35 @@ E tem Índice Zero: Em Java, a contagem sempre começa no 0. Portanto, um array 
 
         // Acessando o tamanho do array
         int tamanho = numeros.length;
+
+Foreach
+
+O foreach é uma versão simplificada do laço for usada para percorrer arrays e coleções de forma direta e legível. Ele elimina a necessidade de contadores ou controle de índices, extraindo cada elemento automaticamente para uma variável temporária. É a escolha ideal para leitura de dados, pois evita erros de limites de memória e torna o código mais limpo, embora não permita modificar o array original ou percorrê-lo de trás para frente.
+
+        String[] nomes = {"Java", "Python", "C++"};
+        
+        //Para cada 'nome' do tipo String dentro do array 'nomes'
+        for (String nome : nomes) {
+        System.out.println(nome);
+        }
+        
+Arrays multidimensionais
+
+Os Arrays Multidimensionais (também conhecidos como Matrizes) são basicamente "arrays de arrays". Uma matriz funciona como uma tabela composta por linhas e colunas. Em Java, cada linha da matriz pode ser tratada como um array independente, permitindo organizar dados complexos de forma estruturada, como coordenadas em um mapa ou valores em uma planilha.
+
+/ Declaração de uma matriz de 2 linhas e 2 colunas
+        int[][] dias = new int[2][2];
+
+        dias[0][0] = 31; // Linha 0, Coluna 0
+        dias[0][1] = 28; // Linha 0, Coluna 1
+        dias[1][0] = 31; // Linha 1, Coluna 0
+        dias[1][1] = 30; // Linha 1, Coluna 1
+
+        // Percorrendo a matriz com for aninhado
+        for (int i = 0; i < dias.length; i++) {
+            for (int j = 0; j < dias[i].length; j++) {
+                System.out.println("Posição [" + i + "][" + j + "]: " + dias[i][j]);
+            }
+        }
+
+## POO
