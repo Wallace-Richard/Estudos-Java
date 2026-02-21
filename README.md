@@ -35,9 +35,13 @@ Estruturas condicionais servem para tomar decisões dentro do código.
 Elas permitem que o programa execute um bloco de código somente se uma condição for verdadeira.
 
 As principais são:
+
 if → executa algo se a condição for verdadeira
+
 else if → testa uma nova condição
+
 else → executa se a condição for falsa
+
 switch → usado quando temos várias opções possíveis
 
 ## if, else if, else:
