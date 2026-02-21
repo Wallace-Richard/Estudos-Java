@@ -262,6 +262,8 @@ Em Java, variáveis de tipo objeto não armazenam o valor diretamente, mas sim u
         System.out.println(pessoa2.nome); // Maria
 
 pessoa2 = pessoa1 não cria uma nova cópia do objeto.
+
 Ambas variáveis (pessoa1 e pessoa2) apontam para o mesmo objeto na memória.
+
 Alterar o atributo nome por meio de pessoa2 também altera o que é visto por pessoa1.
 
