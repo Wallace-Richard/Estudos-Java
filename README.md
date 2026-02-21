@@ -1,7 +1,7 @@
 # Maratona Java - DevDojo
 
-Este repositório foi criado para documentar minha evolução no curso de Java do DevDojo.
-Aqui registro exercícios, conceitos e exemplos práticos aplicados durante os estudos.
+## Este repositório foi criado para documentar minha evolução no curso de Java do DevDojo.
+## Aqui registro exercícios, conceitos e exemplos práticos aplicados durante os estudos.
 
 ------------------------
 
