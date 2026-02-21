@@ -209,9 +209,11 @@ Os Arrays Multidimensionais (também conhecidos como Matrizes) são basicamente 
             }
         }
 
+_______________________________________
+
 # POO: 
 
-# Aula 01 (39 - 40): Introdução a classes
+# Aula 01 (39 - 43): Introdução a classes, objetos e atributos.
 
 ## Classes
 
@@ -243,8 +245,23 @@ Para criar um objeto a partir de uma classe, usamos a palavra-chave new
                 System.out.println(estudante.sexo);
     }
 
-Atributos
-
 Os atributos são as variáveis que descrevem o estado de um objeto. No exemplo acima: nome, idade, e sexo são atributos da classe Estudante.
 
+## Referência de Objetos
+
+Em Java, variáveis de tipo objeto não armazenam o valor diretamente, mas sim uma referência (endereço) para um espaço de memória onde o objeto está armazenado.
+
+        Pessoa pessoa1 = new Pessoa();
+        pessoa1.nome = "João";
+
+        Pessoa pessoa2 = pessoa1; // pessoa2 aponta para o mesmo objeto de pessoa1
+
+        pessoa2.nome = "Maria";
+
+        System.out.println(pessoa1.nome); // Maria
+        System.out.println(pessoa2.nome); // Maria
+
+pessoa2 = pessoa1 não cria uma nova cópia do objeto.
+Ambas variáveis (pessoa1 e pessoa2) apontam para o mesmo objeto na memória.
+Alterar o atributo nome por meio de pessoa2 também altera o que é visto por pessoa1.
 
