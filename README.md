@@ -194,7 +194,7 @@ O foreach é uma versão simplificada do laço for usada para percorrer arrays e
 
 Os Arrays Multidimensionais (também conhecidos como Matrizes) são basicamente "arrays de arrays". Uma matriz funciona como uma tabela composta por linhas e colunas. Em Java, cada linha da matriz pode ser tratada como um array independente, permitindo organizar dados complexos de forma estruturada, como coordenadas em um mapa ou valores em uma planilha.
 
-/ Declaração de uma matriz de 2 linhas e 2 colunas
+        //Declaração de uma matriz de 2 linhas e 2 colunas
         int[][] dias = new int[2][2];
 
         dias[0][0] = 31; // Linha 0, Coluna 0
@@ -210,3 +210,41 @@ Os Arrays Multidimensionais (também conhecidos como Matrizes) são basicamente 
         }
 
 # POO
+
+# Aula 01 (39 - 40): Introdução a classes
+
+## Classes
+
+Uma classe é uma estrutura que define um tipo de objeto, incluindo seus atributos (variáveis) e comportamentos (métodos).
+
+        public class Estudante {
+            public String nome;
+            public int idade;
+            public char sexo;
+        }
+        
+Essa classe Estudante define os dados de um estudante padrão, com seus atributos básicos.
+
+## Objetos
+
+Um objeto é uma instância de uma classe. Após definir a estrutura com a classe, você pode criar objetos a partir dela
+
+Para criar um objeto a partir de uma classe, usamos a palavra-chave new
+
+        public static void main(String[] args) {
+                Estudante estudante = new Estudante();
+
+                estudante.nome = "Luffy";
+                estudante.idade = 18;
+                estudante.sexo = 'M';
+
+                System.out.println(estudante.nome);
+                System.out.println(estudante.idade);
+                System.out.println(estudante.sexo);
+    }
+
+Atributos
+
+Os atributos são as variáveis que descrevem o estado de um objeto. No exemplo acima: nome, idade, e sexo são atributos da classe Estudante.
+
+
