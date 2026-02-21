@@ -5,7 +5,7 @@ Aqui registro exercícios, conceitos e exemplos práticos aplicados durante os e
 
 ------------------------
 
-# Logica de programação  
+# Logica de programação: 
 
 ------------------------
 
@@ -209,7 +209,7 @@ Os Arrays Multidimensionais (também conhecidos como Matrizes) são basicamente 
             }
         }
 
-# POO
+# POO: 
 
 # Aula 01 (39 - 40): Introdução a classes
 
