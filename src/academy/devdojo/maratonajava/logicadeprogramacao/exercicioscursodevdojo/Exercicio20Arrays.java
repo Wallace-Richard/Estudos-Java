@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
+package academy.devdojo.maratonajava.logicadeprogramacao.exercicioscursodevdojo;
 
 public class Exercicio20Arrays {
     public static void main(String[] args) {

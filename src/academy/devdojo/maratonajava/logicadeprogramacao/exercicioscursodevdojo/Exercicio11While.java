@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.logicadeprogramacao.exercicios;
+package academy.devdojo.maratonajava.logicadeprogramacao.exercicioscursodevdojo;
 
 public class Exercicio11While {
     public static void main(String[] args) {
