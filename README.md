@@ -267,3 +267,86 @@ Ambas variáveis (pessoa1 e pessoa2) apontam para o mesmo objeto na memória.
 
 Alterar o atributo nome por meio de pessoa2 também altera o que é visto por pessoa1.
 
+# Aula 02 (44 - 53): Introdução aos metodos, returns, paremetros, this e varags
+
+## Método
+
+Um método é um bloco de código que realiza uma ação. Pode receber parâmetros (entradas) e pode retornar um valor (saída). Os métodos ajudam a manter o código organizado, reutilizável e mais fácil de manter.
+
+    // Método sem retorno (void) e sem parâmetros
+        void exibirMensagem() {
+        System.out.println("Bem-vindo à Calculadora!");
+    }
+
+    // Método com retorno e com parâmetros
+    int somar(int a, int b) {
+        return a + b;   
+    }
+
+## Parâmetros
+
+Parâmetros são variáveis declaradas na assinatura de um método. Eles permitem a passagem de dados para dentro do método no momento da chamada, tornando-o mais flexível.
+
+    void exibirMensagem(String nome) {
+        System.out.println("Olá, " + nome + "!");
+    }
+
+## Retorno de um Método
+
+Um método pode retornar um valor após sua execução.
+
+O tipo de retorno é declarado na assinatura do método.
+
+O comando return é usado para devolver o valor.
+
+    public class Calculadora {
+        int somar(int a, int b) {
+            return a + b;
+        }
+    }
+
+Se um método não precisar retornar nada, use o tipo void:
+
+## Parâmetros Tipos Primitivos
+
+Em Java, todos os parâmetros são passados por valor. Para tipos primitivos, isso significa que o método recebe uma cópia do valor original, e alterações dentro do método não afetam a variável original.
+
+## Parâmetros Tipo Referência
+
+Tipos de Referência incluem todas as classes, interfaces, arrays e enumeradores.
+
+Em Java, todos os parâmetros são passados por valor. No caso de objetos, o valor passado é a referência ao objeto, permitindo que métodos modifiquem o estado interno do objeto, mas não a referência em si.
+
+## This
+
+A palavra-chave this é uma referência ao objeto atual da classe. Ela é usada para:
+
+Diferenciar variáveis de instância de parâmetros com o mesmo nome.
+
+Chamar outro construtor dentro da mesma classe (this(...)).
+
+Retornar o próprio objeto, permitindo encadeamento de métodos.
+
+    String nome;
+
+    public void setNome(String nome) {
+        this.nome = nome; // "this.nome" se refere à variável de instância
+    }
+
+Sem this, o Java entende que nome = nome se refere ao parâmetro da função, causando erro lógico. Com this.nome, deixamos claro que estamos acessando o atributo do objeto.
+
+## Varargs
+
+Varargs (introduced in Java 5) permitem que métodos aceitem um número variável de argumentos do mesmo tipo, utilizando a sintaxe tipo... nomeParametro.
+
+Internamente, o compilador Java trata os varargs como arrays, permitindo iteração e manipulação como em arrays comuns.
+
+Um método pode ter apenas um parâmetro varargs, e este deve ser o último na lista de parâmetros.
+
+     public static void imprimirNomes(String... nomes) {
+        for (String nome : nomes) {
+            System.out.println(nome);
+        }
+    }
+
+
