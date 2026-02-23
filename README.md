@@ -349,4 +349,96 @@ Um método pode ter apenas um parâmetro varargs, e este deve ser o último na l
         }
     }
 
+# Aula 03 (54 - 56): Modificador de acesso private, Get e Set
+
+Modificador private: torna o atributo ou método acessível apenas dentro da própria classe.
+
+Getter (get): método público para acessar o valor de um atributo privado.
+
+Setter (set): método público para modificar o valor de um atributo privado.
+
+Encapsulamento: proteger o acesso direto aos dados da classe, mantendo o controle sobre eles, é considerado um dos 4 pilares da POO.
+
+    public class Pessoa {
+        private String nome;
+        private int idade;
+    
+        public String getNome() {
+            return nome;
+        }
+    
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
+    
+        public int getIdade() {
+            return idade;
+        }
+    
+        public void setIdade(int idade) {
+            this.idade = idade;
+        }
+    }
+
+No set, faça validações sempre que possível para proteger os dados da classe.
+
+# Aula 04 (57 - 60): Sobrecarga, Construtores e Bloco de inicialização
+
+## Sobrecarga:
+
+A sobrecarga (overload) ocorre quando você cria dois ou mais métodos com o mesmo nome na mesma classe, mas com listas de parâmetros diferentes (tipos ou quantidades distintas).
+
+## Construtores:
+
+Os construtores são métodos especiais usados para inicializar o objeto no momento em que ele é criado com a palavra new. Eles garantem que seu objeto "nasça" com os dados necessários, como o nome de uma pessoa e a idade.
+
+O nome do construtor deve ser exatamente o mesmo nome da classe.
+
+Diferente dos métodos comuns, ele não tem tipo de retorno (nem mesmo void).
+
+Se você não escrever nenhum, o Java cria um vazio automaticamente. Mas, se você criar um construtor com parâmetros, o Java "remove" esse automático, e você passa a ser obrigado a fornecer os dados na criação.
+
+        //Construtor
+        Carro(String modelo, int ano) {
+            this.modelo = modelo;
+            this.ano = ano;
+    }
+
+        //como iniciar com construtores
+        Carro carro = new Carro("Corolla", 2023);
+
+
+## Bloco de inicialização:
+
+Blocos de inicialização são usados para executar código sempre que uma instância da classe é criada.
+
+Existem dois tipos principais:
+
+Bloco de inicialização de instância ({}): Executado toda vez que um objeto é instanciado.
+
+Bloco de inicialização estático (static {}): Executado apenas uma vez, quando a classe é carregada pela primeira vez.
+
+        String nome;
+        int idade;
+    
+        {
+            System.out.println("Bloco de inicialização chamado!");
+            nome = "Nome padrão";
+            idade = 18;
+        }
+
+# Aula 05 (61 - 63): Modificador static, Atributos static e Metodos static
+
+## Modificador static
+
+O modificador static indica que um atributo ou método pertence à classe, e não aos objetos individuais criados a partir dela. É como uma regra ou característica que vale para todos, sem exceção.
+
+## Atributos Static
+
+É uma variável compartilhada. Se um objeto alterar o valor de um atributo estático, essa mudança reflete para todos os outros objetos daquela classe, pois todos "olham" para o mesmo lugar na memória.
+
+## Métodos Static
+
+São métodos que você pode chamar diretamente pelo nome da classe, sem precisar dar um new. Eles não podem acessar atributos que não sejam estáticos (aqueles que usam o this), porque não estão ligados a um objeto específico.
+
 
