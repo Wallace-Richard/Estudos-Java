@@ -443,4 +443,68 @@ O modificador static indica que um atributo ou método pertence à classe, e nã
 
 São métodos que você pode chamar diretamente pelo nome da classe, sem precisar dar um new. Eles não podem acessar atributos que não sejam estáticos (aqueles que usam o this), porque não estão ligados a um objeto específico.
 
+# Aula 06 (64 - 70): Arrays com Objeto, Associação unidirecional um para muitos, Associação Bidirecional, Leitura de Dados pelo Console, 
+
+## Arrays objetos
+
+Permitem armazenar múltiplas instâncias de objetos em uma estrutura de dados linear.
+
+Em aplicações reais, preferir coleções como ArrayList
+
+Arrays de objetos são a forma mais simples de associação 1:N (um para muitos).
+
+Por exemplo em em uma escola pode ter varias salas e dentro dessas salas podem ter varios alunos.
+
+    public class Escola {
+        private Sala[] salas;
+        private int totalSalas;
+    }
+    
+    public class Sala {
+        private int idSala;
+        private Aluno[] alunos;
+    }
+
+## Associação Unidirecional Um para Muitos
+
+Um objeto de uma classe contém/referencia múltiplos objetos de outra classe, sem que o inverso seja verdadeiro. A relação existe apenas em uma direção.
+
+## Associação Unidirecional Muitos para Um (N:1)
+
+Múltiplos objetos de uma classe referenciam um único objeto de outra classe, sem que o inverso seja verdadeiro. Diferente da aula anterior (1:N), agora a "seta" aponta no sentido inverso.
+
+    public class Aluno {
+        private String nome;
+        private Escola escola; // Associação muitos-para-um
+    }
+
+## Associação Bidirecional 
+
+Relação onde duas classes se referenciam mutuamente, exigindo sincronização cuidadosa para manter a consistência dos dados.
+
+    public class Aluno {
+        private String nome;
+        private Turma turma;
+    }
+
+    public class Turma {
+        private String nome;
+        private Aluno[] alunos;
+    }
+
+## Leitura de Dados pelo Console
+
+Para fazer a leitura de algo digitado no console e armazenar. é necessario instaciar uma classe Scanner, que pertence ao pacote java.util.
+
+    import java.util.Scanner;
+
+    public class LeituraDados {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            String nome = scanner.nextLine();
+        }
+    }
+
+    
 
