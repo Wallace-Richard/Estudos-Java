@@ -443,7 +443,7 @@ O modificador static indica que um atributo ou método pertence à classe, e nã
 
 São métodos que você pode chamar diretamente pelo nome da classe, sem precisar dar um new. Eles não podem acessar atributos que não sejam estáticos (aqueles que usam o this), porque não estão ligados a um objeto específico.
 
-# Aula 06 (64 - 70): Arrays com Objeto, Associação unidirecional um para muitos, Associação Bidirecional, Leitura de Dados pelo Console, 
+# Aula 06 (64 - 69): Arrays com Objeto, Associação unidirecional um para muitos, Associação Bidirecional, Leitura de Dados pelo Console, 
 
 ## Arrays objetos
 
@@ -506,5 +506,44 @@ Para fazer a leitura de algo digitado no console e armazenar. é necessario inst
         }
     }
 
-    
+# Aula 07 (70 - 79): Herança, ToString e Mofificador final 
 
+## Herança
+
+Herança é a capacidade de uma classe filha "herdar" comportamentos e características de uma classe pai, 
+servindo para reaproveitar código e criar categorias (como um Ebook que herda de Livro). 
+Ela estabelece uma relação de "é um", permitindo que você trate objetos diferentes de forma comum pela sua base.
+
+    public class Pessoa {
+        private String nome;
+        private String cpf;
+    }
+
+    public class Funcionario extends Pessoa {
+        private double salario;
+    }
+
+Usar @Override sempre para usar sobrescrita de metodos de classe pai
+
+Prefira composição sobre herança herde apenas quando houver relação "é-um".
+
+Chame super() para inicializar a superclasse no construtor da classe filha.
+
+## toString
+
+toString é um método que transforma o seu objeto em texto legível para humanos. 
+Sem ele, ao tentar imprimir um objeto, o Java mostra apenas um código de memória
+com ele você define exatamente quais informações (como título e ID) devem aparecer quando o objeto for exibido no console.
+
+    @Override
+    public String toString() {
+        return "Pessoa{nome='" + nome + "', idade=" + idade + "}";
+    }
+
+## Modificador Final
+
+funciona como um lacre de segurança no código que impede qualquer tipo de alteração posterior. Se usado em uma variável, 
+o valor vira uma constante; em um método, impede que ele seja modificado por subclasses; e em uma classe, 
+impede que ela tenha herdeiros, garantindo imutabilidade e segurança.
+
+    
