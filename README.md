@@ -546,4 +546,40 @@ funciona como um lacre de segurança no código que impede qualquer tipo de alte
 o valor vira uma constante; em um método, impede que ele seja modificado por subclasses; e em uma classe, 
 impede que ela tenha herdeiros, garantindo imutabilidade e segurança.
 
-    
+# Aula 08 (80 - 86): Classes enum e abstract
+
+## Classe enum
+
+O que é: Uma lista fixa de constantes (valores que não mudam).
+
+Para que serve: Para representar categorias ou opções predefinidas (ex: Dias da Semana, 
+Status de Pedido). Ele garante que ninguém use um valor inválido, como "Abertooo" em vez de "ABERTO".
+
+Diferencial: Pode ter atributos e métodos próprios para carregar informações extras em cada opção.
+
+    public enum Tamanho {
+        P("Pequeno"), M("Médio"), G("Grande");
+
+        private String descricao;
+        Tamanho(String d) { this.descricao = d; }
+        public String getDescricao() { return descricao; }
+    }
+
+## Classe abstract
+
+O que é: Um "molde" ou contrato incompleto para outras classes.
+
+Para que serve: Para criar uma base comum que não pode ser instanciada (você não dá new nela). 
+Ela obriga as classes filhas a implementarem comportamentos específicos (métodos abstratos).
+
+Diferencial: Define o que as filhas devem fazer, mas deixa que cada uma decida como fazer.
+
+    public abstract class Animal {
+        String nome;
+        public abstract void emitirSom(); // Filhas são obrigadas a criar esse som
+    }
+
+    public class Cachorro extends Animal {
+        public void emitirSom() { System.out.println("Au Au!"); }
+    }
+   
