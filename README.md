@@ -583,3 +583,23 @@ Diferencial: Define o que as filhas devem fazer, mas deixa que cada uma decida c
         public void emitirSom() { System.out.println("Au Au!"); }
     }
    
+# Aula 09 (87 - 94): Class Interface e Polimorfismo
+
+## Interface
+
+A Interface é apenas uma lista de exigências. Ela não faz nada sozinha, apenas diz: "Qualquer classe que quiser ser do meu tipo, PRECISA ter esses métodos".
+
+Exemplo: Imagine a interface ControleRemoto. Ela diz que é obrigatório ter o método apertarBotaoLigar(). Não importa se é o controle da TV, do Ar Condicionado ou do Portão; se é um controle, tem que ter esse botão.
+
+# Polimorfismo
+
+Polimorfismo é quando você usa uma referência genérica (a Interface) para comandar objetos diferentes. O nome vem de "muitas formas", porque o mesmo comando (ligar()) resulta em ações diferentes dependendo do objeto que está na mão.
+
+Exemplo: Você tem uma variável do tipo ControleRemoto.
+
+Se você apontar ela para uma TV, o comando ligar() acende a tela.
+
+Se você apontar para o Ar Condicionado, o mesmo comando ligar() gela o quarto.
+
+O seu código não muda, o que muda é o objeto que está lá dentro.
+
