@@ -603,3 +603,4 @@ Se você apontar para o Ar Condicionado, o mesmo comando ligar() gela o quarto.
 
 O seu código não muda, o que muda é o objeto que está lá dentro.
 
+ 
