@@ -603,4 +603,102 @@ Se você apontar para o Ar Condicionado, o mesmo comando ligar() gela o quarto.
 
 O seu código não muda, o que muda é o objeto que está lá dentro.
 
- 
+# Aula 10 (95 - 105): Errors, RuntimeException, Exception, Exception unchecked, Exception checked, Bloco Finally, Múltiplas exceções em bloco e linha, Try with resources, Exceção customizada e regras de sobrescrita
+
+## Errors 
+
+Representa erros graves e irrecuperáveis que não devem ser tratados pela sua aplicação. 
+Geralmente são problemas da JVM (Máquina Virtual Java), 
+como StackOverflowError (estouro de pilha) ou OutOfMemoryError (falta de memória). 
+Você não captura ou lança Errors
+
+## RuntimeException
+
+São exceções que o compilador não te obriga a tratar. 
+Elas geralmente indicam erros de lógica na programação, como:
+
+NullPointerException: Tentar acessar um membro de uma variável nula.
+
+IllegalArgumentException: Passar um argumento inválido para um método.
+
+IndexOutOfBoundsException: Tentar acessar um índice inválido em um array ou lista.
+
+## Exception
+
+Representa condições anormais que uma aplicação robusta pode e deve tratar. 
+Ela se divide em dois grandes grupos, um deles e o RuntimeException que Unchecked e as outras são Checked como: 
+
+IOException: Erro ao ler um arquivo.
+
+SQLException: Erro ao se comunicar com o banco de dados.
+
+ParseException: Erro ao converter uma String para uma data.
+
+## Exception unchecked
+
+São exceções que o Java te obriga a olhar para elas. 
+Se você chamar um método que lança uma Checked Exception, 
+o seu código não compila enquanto você não decidir se vai usar um try-catch ou um throws.
+
+## Exception checked
+
+São exceções que o compilador ignora. Ele deixa você rodar o programa sem te avisar de nada. 
+Se o erro acontecer, o programa explode em tempo de execução (Runtime).
+Gerealmente é causado pelo erro do programador em questão.
+
+## Bloco Finally
+
+O bloco finally é o "Save point" do tratamento de exceções. 
+Ele é um bloco que sempre será executado, não importa o que aconteça: 
+se o código no try deu certo, se ele caiu no catch, 
+ou até mesmo se você deu um return no meio do caminho.
+
+## Múltiplas exceções em bloco
+
+Você pode ter vários blocos catch, do mais específico para o mais genérico.
+
+    try {
+        // ... código ...
+    } catch (FileNotFoundException e) {
+        System.out.println("File not found!");
+    } catch (IOException e) {
+        System.out.println("Generic IO error!");
+    }
+
+## Múltiplas exceções em linha
+
+Mais conciso que o em bloco, para quando o tratamento do erro é o mesmo para várias exceções.
+
+    try {
+         // ... código ...
+    } catch (InputMismatchException | ArithmeticException e) {
+        System.out.println("Invalid input error.");
+        // e.printStackTrace(); // Imprime o rastro da pilha para debug
+    }
+
+## Try with resources
+
+Introduzido no Java 7, o try-with-resources simplifica muito o gerenciamento de recursos que 
+precisam ser fechados (como streams de arquivos, conexões de banco de dados, etc.).
+
+Ele garante que o recurso declarado nos parênteses do try será fechado automaticamente 
+ao final do bloco, eliminando a necessidade de um bloco finally para isso.
+
+## Exceção customizada
+
+Às vezes, as exceções padrão do Java não descrevem bem um erro de regra de negócio específico. 
+Nesses casos, podemos criar nossas próprias exceções.
+
+Regra: Se a exceção for um erro que o chamador do método deve tratar (checked), herde de Exception. 
+Se for um erro de programação que não deveria ocorrer (unchecked), herde de RuntimeException.
+
+## Exceção e regras de sobrescrita
+
+Quando um método em uma subclasse sobrescreve um método da superclasse, 
+existem regras sobre as exceções:
+
+Um método sobrescrito não pode declarar uma exceção checked que não foi declarada no método original da superclasse.
+
+Ele pode declarar exceções unchecked livremente.
+
+Ele pode declarar exceções checked que sejam subtipos das exceções declaradas no método original.
