@@ -702,3 +702,54 @@ Um método sobrescrito não pode declarar uma exceção checked que não foi dec
 Ele pode declarar exceções unchecked livremente.
 
 Ele pode declarar exceções checked que sejam subtipos das exceções declaradas no método original.
+
+# Aula 11 (106 - 111): Wrappers, Strings, StringsBuilder e StringsBuffer
+
+## O que são Classes Wrapper
+
+As Classes Wrapper são a ponte entre Tipos Primitivos e Tipos por Referência (Objetos). 
+Elas são classes que "embrulham" ou "encapsulam" um valor de tipo primitivo dentro de um objeto.
+
+    Tipo Primitivo 	Classe Wrapper Correspondente
+    int 	        Integer
+    double 	        Double
+    char 	        Character
+    boolean 	    Boolean
+    long 	        Long
+    float 	        Float
+    short 	        Short
+    byte 	        Byte
+
+é usado em estruturas do Java, como as Collections (List, Map, Set), 
+que só conseguem armazenar Objetos. Elas não podem armazenar tipos primitivos diretamente.
+
+## String 
+
+Em Java, String não é um tipo primitivo, mas sim uma classe. 
+Um dos seus conceitos mais importantes é a imutabilidade.
+
+Uma vez que um objeto String é criado, ele nunca pode ser alterado. 
+Qualquer operação que pareça modificar uma string (como replace ou toUpperCase) 
+na verdade cria um novo objeto String em memória com o resultado da modificação.
+
+A imutabilidade, que traz segurança, tem um custo de performance em cenários específicos: 
+concatenação de strings em loop.
+
+As strings são armazenadas em uma área especial da memória chamada "String Pool". 
+Quando você cria uma string literal como String s1 = "Olá";, 
+a JVM primeiro verifica se "Olá" já existe no pool.
+Se sim, ela reutiliza a mesma referência.
+
+## StringsBuilder e StringBuffer
+
+Para resolver o problema da concatenação em loop, 
+o Java oferece as classes StringBuilder e StringBuffer. 
+Ambas são mutáveis, ou seja, permitem modificar a sequência de caracteres sem criar novos objetos.
+
+StringBuilder: Mais rápida, mas não é "thread-safe". 
+É a escolha ideal para a maioria dos casos em que a manipulação da string 
+ocorre em uma única thread (o que é 99% das vezes).
+
+StringBuffer: Um pouco mais lenta porque seus métodos são sincronizados, o que a torna "thread-safe". 
+Use apenas se a mesma string for ser modificada por múltiplas threads simultaneamente.
+
