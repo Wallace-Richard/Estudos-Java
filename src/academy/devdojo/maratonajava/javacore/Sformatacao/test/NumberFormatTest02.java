@@ -1,0 +1,32 @@
+package academy.devdojo.maratonajava.javacore.Sformatacao.test;
+
+import java.text.NumberFormat;
+import java.util.Locale;
+
+public class NumberFormatTest02 {
+    public static void main(String[] args) {
+
+        double valor = 123_456.789;
+
+        Locale localeBR = new Locale("pt", "BR");
+        Locale localeJP = Locale.JAPAN;
+        Locale localeIT = Locale.ITALY;
+        Locale localeUS = Locale.US;
+
+        System.out.println("\n--- Formatando Moedas ---");
+        NumberFormat nfCurrencyBR = NumberFormat.getCurrencyInstance(localeBR);
+        NumberFormat nfCurrencyJP = NumberFormat.getCurrencyInstance(localeJP);
+        NumberFormat nfCurrencyIT = NumberFormat.getCurrencyInstance(localeIT);
+        NumberFormat nfCurrencyUS = NumberFormat.getCurrencyInstance(localeUS);
+
+        System.out.println("Brasil: " + nfCurrencyBR.format(valor));
+        System.out.println("Japão: " + nfCurrencyJP.format(valor));
+        System.out.println("Itália: " + nfCurrencyIT.format(valor));
+        System.out.println("EUA: " + nfCurrencyUS.format(valor));
+
+        // Configuração adicional: controlar o número de casas decimais
+        System.out.println("\n--- Controlando a precisão ---");
+        nfCurrencyBR.setMaximumFractionDigits(4);
+        System.out.println("Brasil (4 casas decimais): " + nfCurrencyBR.format(valor));
+    }
+}
