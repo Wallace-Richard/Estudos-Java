@@ -753,3 +753,249 @@ ocorre em uma única thread (o que é 99% das vezes).
 StringBuffer: Um pouco mais lenta porque seus métodos são sincronizados, o que a torna "thread-safe". 
 Use apenas se a mesma string for ser modificada por múltiplas threads simultaneamente.
 
+# Aula 12 (112 - 129): Internacionalização de Datas e Moeda com Locale, LocalDate, LocalTime, LocalDateTime, Instant, ChronoUnit, TemporalAdjusters e Adjuster, DateTimeFormatter
+
+## Internacionalização de Datas e Moeda com Locale
+
+Um Locale é um objeto que representa uma região geográfica, 
+política ou cultural específica. Ele não é um formatador em si, 
+mas sim um identificador que informa a outras classes (como DateFormat) 
+como elas devem se comportar para se adequar àquela região.
+
+USE A API java.time PARA INTERNACIONALIZAÇÃO: A prática definitiva é 
+usar DateTimeFormatter com o método .withLocale(). É thread-safe, imutável e muito mais claro.
+
+    public static void main(String[] args) {
+        // Use ZonedDateTime para incluir informações de fuso horário
+        ZonedDateTime now = ZonedDateTime.now(); // MUDANÇA AQUI
+        Locale localeItaly = new Locale("it", "IT");
+    
+        // Cria um formatador para um estilo localizado e aplica o Locale
+        DateTimeFormatter formatter = DateTimeFormatter
+        .ofLocalizedDateTime(FormatStyle.FULL)
+        .withLocale(localeItaly);
+    
+        System.out.println(now.format(formatter)); //mercoledì 25 giugno 2025 22:23:58 Ora standard di Brasilia
+        }
+
+Use getCurrencyInstance para Dinheiro: 
+É a forma correta e segura de garantir que todos os aspectos da formatação monetária
+(símbolo, posição, separadores, casas decimais) sejam respeitados de acordo com o Locale.
+
+Use BigDecimal para Cálculos Financeiros: Esta é a prática mais importante.
+NUNCA use double ou float para representar ou calcular valores monetários em aplicações reais. 
+Esses tipos sofrem de imprecisão de ponto flutuante. BigDecimal foi criado para cálculos exatos.
+
+## LocalDate
+
+LocalDate é uma das principais classes da nova API de Data e Hora do Java.
+Ela representa uma data no formato ISO (ano-mês-dia), como "2025-06-28",
+sem a parte de hora, minuto, segundo ou fuso horário.
+
+É a classe ideal para representar aniversários, feriados, 
+ou qualquer evento em que a hora e o fuso horário não são relevantes.
+
+Existem várias formas de se obter um objeto LocalDate.
+
+Data Atual (now) A forma mais simples de obter a data corrente.
+
+Data Específica (of) Para criar uma data específica, use o método estático of.
+
+A partir de uma String (parse) Converte uma string para LocalDate.
+Por padrão, a string deve estar no formato ISO "yyyy-MM-dd".
+
+Uma vez que você tem um objeto LocalDate, pode extrair facilmente suas partes
+
+    LocalDate hoje = LocalDate.now();
+
+    int ano = hoje.getYear();
+    Month mes = hoje.getMonth(); // Retorna o enum Month
+    int numeroDoMes = hoje.getMonthValue(); // Retorna o mês como int (1-12)
+    int diaDoMes = hoje.getDayOfMonth();
+    int diaDoAno = hoje.getDayOfYear();
+    DayOfWeek diaDaSemana = hoje.getDayOfWeek(); // Retorna o enum DayOfWeek
+
+## LocalTime
+
+LocalTime é a classe que representa uma hora no formato ISO 
+(HH:mm:ss.nano), como "21:52:30.123456789". Ela é o par da LocalDate e,
+assim como ela, é "local", ou seja, não possui informação de data ou fuso horário.
+
+É a classe ideal para representar horários de funcionamento, alarmes, 
+ou qualquer evento em que a data e o fuso horário não são relevantes.
+
+As formas de se obter um um objeto são as mesma do LocalDate
+
+Uma vez que você tem um objeto LocalTime, pode extrair facilmente suas partes.
+
+    LocalTime agora = LocalTime.now();
+
+    int hora = agora.getHour();
+    int minuto = agora.getMinute();
+    int segundo = agora.getSecond();
+    int nano = agora.getNano(); 
+
+
+## LocalDateTime
+
+LocalDateTime é a classe que representa uma data e hora, como "2025-07-02T21:45:30". Ela é, literalmente, a combinação de um LocalDate com um LocalTime.
+
+Assim como suas partes, ela é "local", o que significa que não armazena informações de fuso horário
+(timezone). Ela representa a data e hora em um ponto genérico, 
+sem especificar onde no mundo aquela data e hora se aplicam.
+
+As formas de se obter um um objeto são as mesma do LocalDate e LocalTime
+
+## Instant
+
+Instant representa um ponto único e instantâneo na linha do tempo. 
+Pense nele como um carimbo de data/hora (timestamp) universal.
+
+A principal característica do Instant é que ele é sempre representado em UTC 
+(Coordinated Universal Time), também conhecido como "Zulu time" ou GMT. 
+Ele não tem conceito de fuso horário, pois representa o mesmo momento para todos no mundo.
+
+Internamente, ele armazena o tempo como um número de segundos e nanossegundos desde a 
+Época Unix (01 de janeiro de 1970, 00:00:00 UTC). Isso o torna o sucessor direto e muito mais 
+seguro do long de milissegundos da antiga classe java.util.Date.
+
+Como manipular um Instant:
+
+O Momento Atual (now)
+
+    Instant agora = Instant.now();
+    System.out.println("Instante atual (UTC): " + agora);
+
+A partir de Segundos/Milissegundos da Época
+
+Isso é útil para interoperabilidade com sistemas que usam timestamps Unix.
+
+    // Criando a partir de milissegundos (similar a new Date(long))
+    Instant deMilis = Instant.ofEpochMilli(1000L);
+    System.out.println("1 segundo após a Época: " + deMilis);
+
+    // Criando a partir de segundos
+    Instant deSegundos = Instant.ofEpochSecond(3600);
+    System.out.println("1 hora após a Época: " + deSegundos);
+
+## ChronoUnit
+
+ChronoUnit é um enum que implementa a interface TemporalUnit. 
+Ele representa um conjunto padrão de unidades de data e hora, desde nanossegundos até milênios.
+
+Enquanto Period nos dá a diferença quebrada em anos, meses e dias 
+(ex: "1 ano, 2 meses e 15 dias") e Duration nos dá em segundos e nanossegundos, 
+ChronoUnit responde a uma pergunta diferente: 
+"Qual é a quantidade total de tempo entre dois pontos, medida em uma única unidade específica?".
+
+A principal forma de usar ChronoUnit é através do seu método estático between
+(Temporal startInclusive, Temporal endExclusive).
+
+Ele calcula a quantidade total daquela unidade entre dois objetos temporais.
+
+    LocalDate aniversario = LocalDate.of(1990, Month.AUGUST, 15);
+    LocalDate hoje = LocalDate.now();
+
+    System.out.println("Total de Anos: " + ChronoUnit.YEARS.between(aniversario, hoje));
+    System.out.println("Total de Meses: " + ChronoUnit.MONTHS.between(aniversario, hoje));
+    System.out.println("Total de Semanas: " + ChronoUnit.WEEKS.between(aniversario, hoje));
+    System.out.println("Total de Dias: " + ChronoUnit.DAYS.between(aniversario, hoje));
+
+## TemporalAdjusters e Adjuster
+
+Muitas vezes, precisamos fazer cálculos de data que vão além de simplesmente adicionar ou 
+subtrair dias, como "encontrar a próxima sexta-feira" ou "o último dia do mês".
+
+A interface TemporalAdjuster é uma interface funcional que define uma estratégia para 
+ajustar um objeto temporal. A classe TemporalAdjusters (com "s" no final) é uma classe utilitária 
+que contém métodos de fábrica estáticos que retornam implementações comuns dessa interface.
+
+A forma de usar um ajustador é através do método with() de uma classe temporal como LocalDate.
+
+    LocalDate hoje = LocalDate.now();
+    LocalDate proximoMes = hoje.with(TemporalAdjusters.firstDayOfNextMonth());
+
+A classe TemporalAdjusters oferece uma vasta gama de métodos estáticos para os cenários mais comuns.
+
+    LocalDate agora = LocalDate.now();
+    System.out.println("Data de hoje: " + agora);
+    System.out.println("Dia da semana: " + agora.getDayOfWeek());
+
+    System.out.println("\n--- Ajustes Comuns ---");
+
+    // Próxima terça-feira (não inclui hoje se hoje for terça)
+    LocalDate proximaTerca = agora.with(TemporalAdjusters.next(DayOfWeek.TUESDAY));
+    System.out.println("Próxima terça-feira: " + proximaTerca);
+
+A verdadeira força da API é a capacidade de criar seus próprios ajustadores para regras 
+de negócio específicas. Como TemporalAdjuster é uma interface funcional,
+podemos implementá-la facilmente usando uma expressão lambda.
+
+Exemplo: criar uma regra que, dada uma data, retorna o próximo dia. Se o próximo dia for sábado, 
+ele ajusta para a próxima segunda. Se for domingo, também ajusta para a próxima segunda.
+
+    class ObterProximoDiaUtil implements TemporalAdjuster {
+        @Override
+        public Temporal adjustInto(Temporal temporal) {
+            // Pega o dia da semana do temporal passado como argumento
+            DayOfWeek dayOfWeek = DayOfWeek.of(temporal.get(ChronoField.DAY_OF_WEEK));
+
+            int diasParaAdicionar;
+            if (dayOfWeek == DayOfWeek.FRIDAY) {
+                diasParaAdicionar = 3; // Se for sexta, pula para segunda
+            } else if (dayOfWeek == DayOfWeek.SATURDAY) {
+                diasParaAdicionar = 2; // Se for sábado, pula para segunda
+            } else {
+                diasParaAdicionar = 1; // Para os outros dias, apenas adiciona 1
+            }
+        return temporal.plus(diasParaAdicionar, ChronoUnit.DAYS);
+        }
+    }
+
+## DateTimeFormatter
+
+DateTimeFormatter é a classe usada para duas operações essenciais:
+
+Formatação (Formatting): Converter um objeto da API java.time (LocalDate, LocalDateTime, ZonedDateTime, etc.) em uma String. 
+
+Parsing: Converter uma String que representa uma data/hora de volta para um objeto da API java.time.
+
+A classe DateTimeFormatter já vem com várias constantes estáticas para os formatos mais comuns, como o padrão ISO.
+
+    LocalDate hoje = LocalDate.now(); 
+    LocalDateTime agora = LocalDateTime.now();
+
+    // Formatando com padrões ISO pré-definidos
+    System.out.println("ISO DATE: " + hoje.format(DateTimeFormatter.ISO_DATE));
+    System.out.println("ISO WEEK DATE: " + hoje.format(DateTimeFormatter.ISO_WEEK_DATE));
+    System.out.println("ISO DATE TIME: " + agora.format(DateTimeFormatter.ISO_DATE_TIME));
+
+Para a maioria dos casos, você precisará de um formato específico.
+Para isso, usamos o método de fábrica ofPattern(String pattern).
+
+Formatação (Objeto para String)
+
+    // Criando um formatador com um padrão brasileiro
+    DateTimeFormatter formatterBR = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    LocalDateTime agora = LocalDateTime.now();
+
+    String dataFormatada = agora.format(formatterBR);
+
+Parsing (String para Objeto)
+
+    String dataEmTexto = "25/12/2025 10:30:00";
+    DateTimeFormatter parserBR = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+    // Fazendo o parse do texto para um objeto LocalDateTime
+    LocalDateTime dataParseada = LocalDateTime.parse(dataEmTexto, parserBR);
+
+
+
+
+
+
+
+
+
+
+
